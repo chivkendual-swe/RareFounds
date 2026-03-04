@@ -1,12 +1,27 @@
-// Köp-knapp funktionalitet
-document.querySelectorAll('.product-card button').forEach(button => {
-    button.addEventListener('click', function() {
-        const productName = this.parentElement.querySelector('h3').textContent;
-        alert('✅ ' + productName + ' har lagts till i din varukorg!');
-    });
-});
+// Smooth scroll to products
+function scrollToProducts() {
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+}
 
-// CTA knapp
-document.querySelector('.cta-btn').addEventListener('click', function() {
-    alert('Välkommen till vår butik! 🛍️');
+// Add to cart functionality
+function addToCart(productName) {
+    alert('✅ ' + productName + ' har lagts till i din varukorg!');
+}
+
+// Send contact message
+function sendMessage(event) {
+    event.preventDefault();
+    alert('✅ Tack för ditt meddelande! Vi återkommer inom 24 timmar.');
+    event.target.reset();
+}
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 });
